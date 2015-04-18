@@ -18,10 +18,11 @@ class AlexaController extends Controller {
 				'outputSpeech' => [
 					'type' => 'PlainText',
 					'text' => 'This is a hello world message.',
-				]
+				],
+				'shouldEndSession' => true,
 			],
-			'shouldEndSession' => true,
 		]);
+		\Log::info($encoded_json);
 		return response($encoded_json, 200, ['Content-Length' => strlen($encoded_json), 'Content-Type' => 'application/json;charset=UTF-8']);
 	}
 
