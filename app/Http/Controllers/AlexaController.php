@@ -12,7 +12,16 @@ class AlexaController extends Controller {
 		/** @var ParameterBag $json */
 		$json = $request->json();
 		\Log::info($json->all());
-		return \Response::json(array('test' => 'test2'));
+		return \Response::json([
+			'version' => '1.0',
+			'response' => [
+				'outputSpeech' => [
+					'type' => 'PlainText',
+					'text' => 'This is a hello world message.',
+				]
+			],
+			'shouldEndSession' => true,
+		]);
 	}
 
 }
