@@ -22,7 +22,7 @@ class AlexaController extends Controller {
 			],
 			'shouldEndSession' => true,
 		]);
-		return response($encoded_json, 200, ['Content-Length' => strlen($encoded_json)]);
+		return response($encoded_json, 200, ['Content-Length' => strlen($encoded_json), 'Content-Type' => 'application/json;charset=UTF-8']);
 	}
 
 }
