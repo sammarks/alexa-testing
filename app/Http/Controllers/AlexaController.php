@@ -17,7 +17,7 @@ class AlexaController extends Controller {
 			'response' => [
 				'outputSpeech' => [
 					'type' => 'PlainText',
-					'text' => 'The value is ' . $json->get('intent.slots.Test.value'),
+					'text' => 'The value is ' . $json->get('request.intent.slots.Test.value'),
 				],
 				'shouldEndSession' => true,
 			],
