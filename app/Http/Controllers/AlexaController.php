@@ -12,7 +12,7 @@ class AlexaController extends Controller {
 		/** @var ParameterBag $json */
 		$json = $request->json();
 		\Log::info($json->all());
-		return \Response::json([
+		$encoded_json = json_encode([
 			'version' => '1.0',
 			'response' => [
 				'outputSpeech' => [
@@ -22,6 +22,7 @@ class AlexaController extends Controller {
 			],
 			'shouldEndSession' => true,
 		]);
+		return response($encoded_json, 200, ['Content-Length' => strlen($encoded_json)]);
 	}
 
 }
